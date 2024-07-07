@@ -57927,7 +57927,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1032144767344000303, guid: d2e394ad2c606864bb121a8284a8ee6d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.792
+      value: 0.817
       objectReference: {fileID: 0}
     - target: {fileID: 1032144767344000303, guid: d2e394ad2c606864bb121a8284a8ee6d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -57964,6 +57964,14 @@ PrefabInstance:
     - target: {fileID: 4935913710827783840, guid: d2e394ad2c606864bb121a8284a8ee6d, type: 3}
       propertyPath: enableJump
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4935913710827783840, guid: d2e394ad2c606864bb121a8284a8ee6d, type: 3}
+      propertyPath: enableHeadBob
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9094358028710466781, guid: d2e394ad2c606864bb121a8284a8ee6d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -83274,7 +83282,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8182058404215717383, guid: d4e3527acc2917a4bade621931c52552, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.13
       objectReference: {fileID: 0}
     - target: {fileID: 8182058404215717383, guid: d4e3527acc2917a4bade621931c52552, type: 3}
       propertyPath: m_LocalPosition.z
