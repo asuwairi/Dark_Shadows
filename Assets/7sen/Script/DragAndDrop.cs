@@ -5,6 +5,7 @@ using UnityEngine;
 public class DragAndDrop : MonoBehaviour
 {
     public GameObject SelectedPiece;
+
     void Start()
     {
         
@@ -18,23 +19,24 @@ public class DragAndDrop : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
             if (hit.transform.CompareTag("Puzzle"))
             {
-                if (!hit.transform.GetComponent<PieceScripttt>().InRightPosition)
+                if (!hit.transform.GetComponent<PieceScript>().InRightPosition)
                 {
                  SelectedPiece = hit.transform.gameObject;
-                 SelectedPiece.GetComponent<PieceScripttt>().Selected  = true;
+                 SelectedPiece.GetComponent<PieceScript>().Selected = true;    
                 }
                 
             }
         }
         if (Input.GetMouseButtonUp(0))
         {
-            SelectedPiece.GetComponent<PieceScripttt>().Selected = false;
+            SelectedPiece.GetComponent<PieceScript>().Selected = false;
             SelectedPiece = null;
         }
         if (SelectedPiece != null)
         {
             Vector3 MousePoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            SelectedPiece.transform.position = new Vector3 (MousePoint.x,MousePoint.y,0);
+         SelectedPiece.transform.position = new Vector3(MousePoint.x,MousePoint.y,0);        
         }
+            
     }
 }
