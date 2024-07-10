@@ -5,10 +5,10 @@ using UnityEngine;
 public class DragAndDrop : MonoBehaviour
 {
     public GameObject SelectedPiece;
-
+    public Camera cam;
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -16,27 +16,35 @@ public class DragAndDrop : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-            if (hit.transform.CompareTag("Puzzle"))
+            RaycastHit2D hit = Physics2D.Raycast(cam.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+            if (hit.transform.gameObject.CompareTag("Puzzle"))
             {
-                if (!hit.transform.GetComponent<PieceScript>().InRightPosition)
+                if (hit.transform.gameObject.GetComponent<PieceScript>() != null)
                 {
-                 SelectedPiece = hit.transform.gameObject;
-                 SelectedPiece.GetComponent<PieceScript>().Selected = true;    
+                    if (!hit.transform.gameObject.GetComponent<PieceScript>().isRight())
+                    {
+                        SelectedPiece = hit.transform.gameObject;
+                        SelectedPiece.GetComponent<PieceScript>().Selected = true;
+                    }
                 }
-                
+
+
             }
-        }
-        if (Input.GetMouseButtonUp(0))
-        {
-            SelectedPiece.GetComponent<PieceScript>().Selected = false;
-            SelectedPiece = null;
+            else { return; }
         }
         if (SelectedPiece != null)
         {
-            Vector3 MousePoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-         SelectedPiece.transform.position = new Vector3(MousePoint.x,MousePoint.y,0);        
+            if (Input.GetMouseButtonUp(0))
+            {
+                SelectedPiece.GetComponent<PieceScript>().Selected = false;
+                SelectedPiece = null;
+            }
+            if (SelectedPiece != null)
+            {
+                Vector3 MousePoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                SelectedPiece.transform.position = new Vector3(MousePoint.x, MousePoint.y, 0);
+            }
         }
-            
+
     }
 }
